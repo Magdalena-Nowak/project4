@@ -30,12 +30,12 @@ body {
   border-radius: 1rem;
   box-shadow: 0px 0px 15px 0px rgba(0, 132, 255, 1);
   &__link {
-      position: relative;
+    position: relative;
     text-decoration: none;
     padding: 1rem 2rem;
     overflow: hidden;
     cursor: crosshair;
-    transition: all 1s ease-in-out;
+    transition: all 0.6s ease-in-out;
   }
   &__link:visited {
     color: #0084ff;
@@ -47,13 +47,125 @@ body {
   width: 100%;
   height: 0.1rem;
   position: absolute;
-  left: -100%;
+  left: 0;
   bottom: 0;
   background-color: aliceblue;
-  transition: all 1s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.one:hover::after {
+  transform: scaleX(1);
+  transform-origin: right;
 }
 
-.one:hover::after {
+//link 2
+.two::before,
+.two::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  transition: all 0.6s ease-in-out;
+}
+.two::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 0 solid aliceblue;
+  border-right: 0 solid aliceblue;
+}
+.two::before {
+  top: 0;
+  left: 0;
+  border-top: 0 solid aliceblue;
+  border-left: 0 solid aliceblue;
+}
+
+.two:hover::before,
+.two:hover::after {
+  width: 3rem;
+  height: 3rem;
+}
+
+.two:hover::after {
+  border-width: 0.15rem;
+}
+.two:hover::before {
+  border-width: 0.15rem;
+}
+
+//Link 3
+.three::after {
+  content: "";
+  width: 100%;
+  height: 0.1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  transition: all 0.6s ease-in-out;
+  transform: scaleX(0);
+}
+
+.three:hover::after {
+  transform: scaleX(1);
+}
+
+//Link 4
+.four {
+  z-index: 100;
+}
+.four::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  mix-blend-mode: darken;
+  transform: translateY(100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.four:hover::before {
+  transform: translateY(0%);
+}
+
+.four:hover {
+  color: black;
+}
+
+//link 5
+.five {
+  z-index: 100;
+}
+.five::before,
+.five::after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: aliceblue;
+  mix-blend-mode: darken;
+  transition: all 0.6s ease;
+}
+.five::before {
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+}
+.five::after {
+  right: 0;
+  top: 0;
   transform: translateX(100%);
-  color: aliceblue;
+}
+.five:hover::before {
+  transform: translateX(100%);
+}
+.five:hover::after {
+  transform: translateX(-100%);
+}
+.five:hover {
+  color: black;
 }
