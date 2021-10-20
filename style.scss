@@ -135,3 +135,37 @@ body {
 .four:hover {
   color: black;
 }
+
+//link 5
+.five {
+  z-index: 100;
+}
+.five::before,
+.five::after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: aliceblue;
+  mix-blend-mode: darken;
+  transition: all 0.6s ease;
+}
+.five::before {
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+}
+.five::after {
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+}
+.five:hover::before {
+  transform: translateX(100%);
+}
+.five:hover::after {
+  transform: translateX(-100%);
+}
+.five:hover {
+  color: black;
+}
